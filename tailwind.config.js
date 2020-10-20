@@ -79,6 +79,7 @@ module.exports = {
         900: '#234e52',
       },
       blue: '#025E73',
+      blue2: '#037F8C',
       indigo: {
         100: '#ebf4ff',
         200: '#c3dafe',
@@ -281,6 +282,7 @@ module.exports = {
       '-4': '-1rem',
       '-2': '-.5rem',
       '0': '0',
+      3: '.75rem',
       auto: 'auto',
     },
     letterSpacing: {
