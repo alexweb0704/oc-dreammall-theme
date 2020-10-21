@@ -10,7 +10,7 @@
 </head>
 
 <body class="relative">
-    <header class="bg-blue shadow-2xl sticky -top-15 sm:top-0">
+    <header class="bg-blue shadow-2xl sticky -top-15 sm:top-0 z-20">
         <div class="sticky container mx-auto flex text-white justify-between py-2 sm:py-4 flex-wrap">
             <div class="my-auto order-1 hidden sm:block">
                 <a href="javascript:;" class="p-2" onclick="openDrawer()">
@@ -83,44 +83,73 @@
     </header>
     <script>
         function openDrawer() {
-            $('#catalog').toggleClass('-translate-x-full bg-opacity-25');
+            $('#catalog').toggleClass($('#catalog').hasClass('show') != true ? 'show' : 'hide');
         }
     </script>
-    <div class="sticky inset-0 bg-black bg-opacity-0 top-20 inset-x-0 flex self-stretch transform -translate-x-full transition ease-in duration-200"
-        id="catalog">
-        <div class="flex self-stretch w-full">
-            <ul class="w-1/6 bg-white shadow-r h-full py-3 z-30 shadow-r border-r flex flex-col">
-                <li class="px-4 p-1 group">
-                    <a href=""
-                        class="p-1 border-b-2  block border-transparent group-hover:border-blue transition ease-in duration-200">
-                        Мужская одежда
-                    </a>
-                    <ul
-                        class="right-full group-hover:left-1/6 top-0 absolute w-1/6 bg-white shadow-r h-full py-3 z-30 shadow-r border-r flex flex-col">
-                        <li class="px-4 p-1 group">
-                            <a href=""
-                                class="p-1 border-b-2  block border-transparent group-hover:border-blue transition ease-in duration-200">
-                                Мужская одежда
-                            </a>
-                        </li>
-                        <li class="px-4 p-1 group">
-                            <a href=""
-                                class="p-1 border-b-2  block border-transparent group-hover:border-blue transition ease-in duration-200">
-                                Мужская одежда
-                            </a>
-                        </li>
-                        <li class="mt-auto">
-                            <img src="../assets/tmp/images/kalonka.png" alt="" class="w-full object-contain">
-                        </li>
-                    </ul>
-                </li>
-                <li class="px-4 p-1 group mt-auto">
-                    <a href=""
-                        class="p-1 border-b-2  block border-transparent group-hover:border-blue transition ease-in duration-200">
-                        Каталог
-                    </a>
-                </li>
-            </ul>
+    <div id="catalog" class="show h-full">
+        <div class="catalog-layer h-full transition ease-in duration-200">
+            <div
+                class="catalog-container transition-all ease-in delay-100 duration-200 bg-white overflow-hidden box-border">
+                <ul class="catalog-root-list">
+                    <li class="px-4 p-2 flex flex-wrap justify-between">
+                        <a href="" class="">
+                            Мужская одежда
+                        </a>
+                        <a href="javascript:;" class="sm:hidden px-2">
+                            <i class="far fa-angle-down"></i>
+                        </a>
+                        <ul class="w-full">
+                            <li class="px-4 p-1 group">
+                                <a href=""
+                                    class="p-1 border-b-2  block border-transparent group-hover:border-blue transition ease-in duration-200">
+                                    Мужская одежда
+                                </a>
+                            </li>
+                            <li class="px-4 p-1 group">
+                                <a href=""
+                                    class="p-1 border-b-2  block border-transparent group-hover:border-blue transition ease-in duration-200">
+                                    Мужская одежда
+                                </a>
+                            </li>
+                            <li class="mt-auto hidden sm:block">
+                                <img src="../assets/tmp/images/kalonka.png" alt="" class="w-full object-contain">
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="px-4 p-2 flex flex-wrap justify-between">
+                        <a href="" class="">
+                            Мужская одежда
+                        </a>
+                        <a href="javascript:;" class="sm:hidden">
+                            <i class="far fa-angle-down"></i>
+                        </a>
+                        <!-- <ul
+                                                class="right-full group-hover:left-1/6 top-0 absolute w-1/6 bg-white shadow-r h-full py-3 z-30 shadow-r border-r flex flex-col">
+                                                <li class="px-4 p-1 group">
+                                                    <a href=""
+                                                        class="p-1 border-b-2  block border-transparent group-hover:border-blue transition ease-in duration-200">
+                                                        Мужская одежда
+                                                    </a>
+                                                </li>
+                                                <li class="px-4 p-1 group">
+                                                    <a href=""
+                                                        class="p-1 border-b-2  block border-transparent group-hover:border-blue transition ease-in duration-200">
+                                                        Мужская одежда
+                                                    </a>
+                                                </li>
+                                                <li class="mt-auto">
+                                                    <img src="../assets/tmp/images/kalonka.png" alt="" class="w-full object-contain">
+                                                </li>
+                                            </ul> -->
+                    </li>
+                    <li class="px-4 p-1 group mt-auto">
+                        <a href=""
+                            class="p-1 border-b-2  block border-transparent group-hover:border-blue transition ease-in duration-200">
+                            Каталог
+                        </a>
+                    </li>
+                </ul>
+            </div>
         </div>
     </div>
     <section class="bg-white">

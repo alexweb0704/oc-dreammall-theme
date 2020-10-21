@@ -3,6 +3,45 @@
     box-shadow: 3px 0px 6px #00000029;
 }
 
+#catalog {
+   @apply sticky inset-x-0 top-15 z-10 transform -translate-y-2;
+   @apply box-border overflow-hidden;
+   @apply h-0;
+}
+
+#catalog .catalog-container{
+ @apply w-full;
+} 
+
+#catalog.show .catalog-container {
+    @apply h-auto ;
+    height: calc(100vh - 3rem);    
+}
+#catalog.hide .catalog-container {
+    @apply h-0;
+}
+#catalog.show .catalog-layer {
+    @apply bg-black bg-opacity-25;
+}
+
+#catalog.hide .catalog-layer {
+    @apply bg-black bg-opacity-0;
+}
+#catalog .catalog-container .catalog-root-list {
+    @apply  flex flex-col pt-2;
+    min-height: calc(100vh - 5.5rem);
+}
+
+#catalog.show {
+    @apply bottom-0;
+    @apply bg-black bg-opacity-25;
+    height: calc(100vh - 5.5rem)
+}
+#catalog.hide {
+    @apply bottom-0;
+    @apply h-0;
+}
+
 @tailwind base;
 
 @tailwind components;
