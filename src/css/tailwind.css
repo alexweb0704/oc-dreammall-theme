@@ -1,4 +1,7 @@
 
+.shadow-r {
+    box-shadow: 3px 0px 6px #00000029;
+}
 
 @tailwind base;
 
