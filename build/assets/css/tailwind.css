@@ -2,13 +2,28 @@
   box-shadow: 3px 0px 6px #00000029;
 }
 
-#catalog {
+#header {
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
   position: -webkit-sticky;
   position: sticky;
+  top: -3.25rem;
+  z-index: 10;
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 1, 1);
+  transition-duration: 500ms;
+  --bg-opacity: 1;
+  background-color: #025E73;
+  background-color: rgba(2, 94, 115, var(--bg-opacity));
+}
+
+#catalog {
+  position: fixed;
+  top: 0;
+  bottom: 0;
   right: 0;
   left: 0;
-  top: 3.5rem;
   z-index: 10;
+  padding-top: 3rem;
   --transform-translate-x: 0;
   --transform-translate-y: 0;
   --transform-rotate: 0;
@@ -17,58 +32,74 @@
   --transform-scale-x: 1;
   --transform-scale-y: 1;
   transform: translateX(var(--transform-translate-x)) translateY(var(--transform-translate-y)) rotate(var(--transform-rotate)) skewX(var(--transform-skew-x)) skewY(var(--transform-skew-y)) scaleX(var(--transform-scale-x)) scaleY(var(--transform-scale-y));
-  --transform-translate-y: -0.5rem;
-  box-sizing: border-box;
-  overflow: hidden;
-  height: 0;
-}
-
-#catalog .catalog-container{
+  --transform-translate-x: -100%;
+  height: 100vh;
   width: 100%;
+  background-color: transparent;
+  --bg-opacity: 0.75;
+  transition-property: background-color, border-color, color, fill, stroke;
+  transition-timing-function: cubic-bezier(0.4, 0, 1, 1);
+  transition-duration: 500ms;
 }
 
-#catalog.show .catalog-container {
-  height: auto;
-  height: calc(100vh - 3rem);
-}
-
-#catalog.hide .catalog-container {
-  height: 0;
+#catalog .catalog-layer {
+  --transform-translate-x: 0;
+  --transform-translate-y: 0;
+  --transform-rotate: 0;
+  --transform-skew-x: 0;
+  --transform-skew-y: 0;
+  --transform-scale-x: 1;
+  --transform-scale-y: 1;
+  transform: translateX(var(--transform-translate-x)) translateY(var(--transform-translate-y)) rotate(var(--transform-rotate)) skewX(var(--transform-skew-x)) skewY(var(--transform-skew-y)) scaleX(var(--transform-scale-x)) scaleY(var(--transform-scale-y));
+  --transform-translate-x: -100%;
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 1, 1);
+  transition-duration: 500ms;
 }
 
 #catalog.show .catalog-layer {
-  --bg-opacity: 1;
-  background-color: #000;
-  background-color: rgba(0, 0, 0, var(--bg-opacity));
-  --bg-opacity: 0.25;
-}
-
-#catalog.hide .catalog-layer {
-  --bg-opacity: 1;
-  background-color: #000;
-  background-color: rgba(0, 0, 0, var(--bg-opacity));
-  --bg-opacity: 0;
-}
-
-#catalog .catalog-container .catalog-root-list {
-  display: flex;
-  flex-direction: column;
-  padding-top: 0.5rem;
-  min-height: calc(100vh - 5.5rem);
+  --transform-translate-x: 0;
 }
 
 #catalog.show {
-  bottom: 0;
   --bg-opacity: 1;
   background-color: #000;
   background-color: rgba(0, 0, 0, var(--bg-opacity));
-  --bg-opacity: 0.25;
-  height: calc(100vh - 5.5rem)
+  --bg-opacity: 0.75;
+  --transform-translate-x: 0;
 }
 
-#catalog.hide {
-  bottom: 0;
-  height: 0;
+#catalog .search {
+  position: fixed;
+  top: -3.25rem;
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 1, 1);
+  transition-duration: 500ms;
+  transition-delay: 100ms;
+}
+
+#catalog .catalog-container {
+  display: flex;
+}
+
+#catalog .catalog-list {
+  --bg-opacity: 1;
+  background-color: #fff;
+  background-color: rgba(255, 255, 255, var(--bg-opacity));
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - 5.5rem);
+}
+
+@media (min-width: 640px) {
+  #catalog .catalog-list {
+    width: 16.666667%;
+    height: calc(100vh - 5.5rem);
+  }
+}
+
+#catalog.show .search {
+  top: 0;
 }
 
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
